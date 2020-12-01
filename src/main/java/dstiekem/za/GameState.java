@@ -12,13 +12,13 @@ import java.io.IOException;
 public abstract class GameState {
     public File file;
 /*    public Experience experience;
-    public Level level;
+    public Level level;*/
     @NotNull
     @Size(min=1, max=3)
     public String classs;
     @NotNull
     @Size(min=1, max=3)
-    public String name;*/
+    public String name;
     private Hero hero;
     GameState(Hero hero) throws IOException {
         this.hero = hero;

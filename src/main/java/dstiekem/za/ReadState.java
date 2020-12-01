@@ -4,6 +4,8 @@ import dstiekem.za.controller.*;
 import dstiekem.za.controller.*;
 import dstiekem.za.model.*;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.*;
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,10 +18,19 @@ public class ReadState extends GameState{
     public Experience experience;
     public Level level;
     public String onlyYN;
-
-    ReadState(Hero hero) throws IOException {
-        super(hero);
+    @NotNull
+    @Size(min=1, max=3)
+    public String classs;
+    @NotNull
+    @Size(min=1, max=3)
+    public String name;
+    private Hero hero;
+    ReadState() throws IOException {
+        super(createHero());
         file = new File("savestate.txt");
+
+    }
+    private Hero createHero() {
         try {
             FileReader fr = new FileReader(file);
             BufferedReader bbr = new BufferedReader(fr);
@@ -36,10 +47,10 @@ public class ReadState extends GameState{
             intLev = new Integer.valueOf(lines.get(3));
             experience = new Experience(intEx);
             level =  new Level(intLev);
-
-
             Hero hero = new Hero(lines.get(0),
                     lines.get(1), experience, level);
+            return hero;
+
         } catch (FileNotFoundException ex) {
 
             /*System.out.println("Saved Game not found. Create new game?");
@@ -55,6 +66,8 @@ public class ReadState extends GameState{
                 java.lang.System.exit(0);
             }
             onlyYN = br.readLine();*/
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
