@@ -1,0 +1,12 @@
+package dstiekem.za.controller;
+//composed of level
+//composed of
+public class Experience {
+    public int Experience;
+    public Experience(int points) {
+        this.Experience = points;
+    }
+    public int UpEx() {
+        return Experience++;
+    }
+}
