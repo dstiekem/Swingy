@@ -29,19 +29,19 @@ public class Main
         @Size(min=1, max=3)
         String onlyYN;
         try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader mr = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Create new game?: ");
-            onlyYN = br.readLine();
+            onlyYN = mr.readLine();
             GameState gameState;
             if (onlyYN.equals("yes") || onlyYN.equals("Yes") || onlyYN.equals("YES") || onlyYN.equals("Y") || onlyYN.equals("y")) {
                 gameState = new NewState();
             } else if (onlyYN.equals("no") || onlyYN.equals("No") || onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n")) {
                 gameState = new ReadState();
             }
-
-            BufferedWriter bbw = new BufferedWriter(new FileWriter(file));
+            map(gameState.gethero)
+            /*BufferedWriter bbw = new BufferedWriter(new FileWriter(file));
             bbw.write("overwrten");
-            bbw.close();
+            bbw.close();*/
         } catch (IOException e) {
             System.out.println("Error reading input!");
         }

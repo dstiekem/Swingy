@@ -1,7 +1,11 @@
 package dstiekem.za.model;
 
 public class HitPoints {
-    HitPoints(int Amount){
-
+    int hi;
+    public HitPoints(int hi){
+        this.hi = hi;
+    }
+    public void setHi(int set) {
+        hi = set;
     }
 }

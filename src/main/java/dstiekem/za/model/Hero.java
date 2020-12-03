@@ -17,25 +17,28 @@ import dstiekem.za.controller.*;
 //defense - run
 //hit points - how many attack before die
 public class Hero {
-    public Experience Ex;
+    private Experience Ex;
     public Level l;
-    protected Attack at;
-    protected Defense de;
-    protected HitPoints hp;
-    protected String classy;
+    private Attack at;
+    private Defense de;
+    private HitPoints hp;
+    private Classy classy;
     //@NotNull
     //@Size(min=5, max=10)
-    protected String name;
-    protected Coords coords;
+    private String name;
+    private Coords coords;
 
-    public Hero(String classy, String name, Experience Ex, Level lev) {
+    public Hero(Classy classy, String name, Experience Ex, Level lev, Attack attack, Defense defense, HitPoints hitpoints) {
         this.classy = classy;
         this.name = name;
         this.Ex = Ex;
         this.l = lev;
+        this.at = attack;
+        this.de = defense;
+        this.hp = hitpoints;
     }
 
-    priavte Coords move(Coords currentCoords, String direction) {
+    private Coords move(Coords currentCoords, String direction) {
         //figure out how to use validators here
         if (direction.equals("North") || direction.equals("NORTH") || direction.equals("north"))
         {
@@ -55,7 +58,7 @@ public class Hero {
         }
         return (currentCoords(x,y));
     }
-  /*  protected FightOrFlight(Enemy enemy, boolean choice) {
+    private FightOrFlight(Enemy enemy, boolean choice, Coords coords) {
 
     }
     protected Artefact pickUp() {

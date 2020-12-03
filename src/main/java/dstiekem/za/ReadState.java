@@ -14,9 +14,12 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class ReadState extends GameState{
-    public File file;
-    public Experience experience;
-    public Level level;
+
+    public static Experience experience;
+    public static Level level;
+    public static Attack at;
+    public static Defense de;
+    public static HitPoints hi;
     public String onlyYN;
     @NotNull
     @Size(min=1, max=3)
@@ -24,13 +27,13 @@ public class ReadState extends GameState{
     @NotNull
     @Size(min=1, max=3)
     public String name;
-    private Hero hero;
+
     ReadState() throws IOException {
-        super(createHero());
+        super(readHero());
         file = new File("savestate.txt");
 
     }
-    private Hero createHero() {
+    static private Hero readHero() {
         try {
             FileReader fr = new FileReader(file);
             BufferedReader bbr = new BufferedReader(fr);
@@ -41,15 +44,15 @@ public class ReadState extends GameState{
                     break;
                 }
             }
-            Integer intEx;
-            intEx = new Integer.valueOf(lines.get(2));
-            Integer intLev;
-            intLev = new Integer.valueOf(lines.get(3));
-            experience = new Experience(intEx);
-            level =  new Level(intLev);
+            experience = new Experience(Integer.parseInt(lines.get(2)));
+            level =  new Level(Integer.parseInt(lines.get(3)));
+            at = new Attack(Integer.parseInt(lines.get(4)));
+            de = new Defense(Integer.parseInt(lines.get(5)));
+            hi = new HitPoints(Integer.parseInt(lines.get(6)));
+
             Hero hero = new Hero(lines.get(0),
-                    lines.get(1), experience, level);
-            return hero;
+                    lines.get(1), experience, level, at, de, hi);
+
 
         } catch (FileNotFoundException ex) {
 
@@ -69,5 +72,6 @@ public class ReadState extends GameState{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return hero;
     }
 }
