@@ -15,11 +15,11 @@ import java.util.ArrayList;
 
 public class ReadState extends GameState{
 
-    public static Experience experience;
+   /* public static Experience experience;
     public static Level level;
     public static Attack at;
     public static Defense de;
-    public static HitPoints hi;
+    public static HitPoints hi;*/
     public String onlyYN;
     @NotNull
     @Size(min=1, max=3)

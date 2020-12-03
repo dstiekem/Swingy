@@ -25,7 +25,7 @@ public class NewState extends GameState{
     public static HitPoints hi;
     @NotNull
     @Size(min=1, max=3)
-    public static Class classs;
+    public static Classy classs;
     @NotNull
     @Size(min=1, max=3)
     public static String name;
@@ -38,7 +38,7 @@ public class NewState extends GameState{
         try {
             BufferedReader classr = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("pick a class! type winged, Shelled, venomed, or mimicryst");
-            classs = classr.readLine();
+            classs = new Classy(classr.readLine());
             System.out.println("great! now give your hero a name");
             BufferedReader namer = new BufferedReader(new InputStreamReader(System.in));
             name = namer.readLine();

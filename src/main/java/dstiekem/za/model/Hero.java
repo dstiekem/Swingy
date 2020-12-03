@@ -3,6 +3,8 @@ package dstiekem.za.model;
 import javax.validation.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import dstiekem.za.Classy;
 import dstiekem.za.model.*;
 import dstiekem.za.controller.*;
 
@@ -17,7 +19,7 @@ import dstiekem.za.controller.*;
 //defense - run
 //hit points - how many attack before die
 public class Hero {
-    private Experience Ex;
+    private Experience ex;
     public Level l;
     private Attack at;
     private Defense de;
@@ -28,10 +30,10 @@ public class Hero {
     private String name;
     private Coords coords;
 
-    public Hero(Classy classy, String name, Experience Ex, Level lev, Attack attack, Defense defense, HitPoints hitpoints) {
+    public Hero(Classy classy, String name, Experience ex, Level lev, Attack attack, Defense defense, HitPoints hitpoints) {
         this.classy = classy;
         this.name = name;
-        this.Ex = Ex;
+        this.ex = ex;
         this.l = lev;
         this.at = attack;
         this.de = defense;
@@ -58,10 +60,28 @@ public class Hero {
         }
         return (currentCoords(x,y));
     }
-    private FightOrFlight(Enemy enemy, boolean choice, Coords coords) {
+    private void FightOrFlight(Enemy enemy, boolean choice, Coords coords) {
 
     }
     protected Artefact pickUp() {
 
-    }*/
+    }
+    public Experience getEx() {
+        return ex;
+    }
+    public Level getLev() {
+        return l;
+    }
+    public Attack getAt() {
+        return at;
+    }
+    public Defense getDe() {
+        return de;
+    }
+    public HitPoints getHi() {
+        return hp;
+    }
+    public Classy getClassy() {
+        return classy;
+    }
 }
