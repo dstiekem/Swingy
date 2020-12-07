@@ -107,5 +107,6 @@ public class Hero {
 
     public void setClassy(Classy classy) {
         this.classy = classy;
+
     }
 }

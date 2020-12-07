@@ -8,9 +8,14 @@ public class Classy {
     private Defense de;
     private HitPoints hi;
     Classy(String className) {
+
         this.className = className;
+        setNewClassAt(this.className);
+        setNewClassDe(this.className);
+        setNewClassHi(this.className);
+
     }
-    public Attack getNewClassAt() {
+    private void setNewClassAt(String className) {
         if (className.equals("mimicryst"))
         {
             at.setAtt(75);
@@ -28,9 +33,9 @@ public class Classy {
             at.setAtt(25);
         }
         //winged, Shelled, venomed, or mimicryst
-        return (at);
+      /*  return (at);*/
     }
-    public Defense getNewClassDe() {
+    private void setNewClassDe(String className) {
         if (className.equals("mimicryst"))
         {
             de.setDe(75);
@@ -48,9 +53,9 @@ public class Classy {
             de.setDe(50);
         }
         //winged, Shelled, venomed, or mimicryst
-        return (de);
+/*        return (de);*/
     }
-    public HitPoints getNewClassHi() {
+    private void setNewClassHi(String className) {
         if (className.equals("mimicryst"))
         {
             hi.setHi(25);
@@ -67,7 +72,16 @@ public class Classy {
         {
             hi.setHi(100);
         }
-        return (hi);
+        /*return (hi);*/
+    }
+    public Attack getAt() {
+        return this.at;
+    }
+    public HitPoints getHi() {
+        return this.hi;
+    }
+    public Defense getDe() {
+        return this.de;
     }
 
 }
