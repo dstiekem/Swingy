@@ -9,4 +9,7 @@ public class Experience {
     public int UpEx() {
         return Experience++;
     }
+    public void setExp(int ex) {
+        Experience = ex;
+    }
 }

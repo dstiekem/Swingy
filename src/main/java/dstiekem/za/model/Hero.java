@@ -30,14 +30,19 @@ public class Hero {
     private String name;
     private Coords coords;
 
-    public Hero(Classy classy, String name, Experience ex, Level lev, Attack attack, Defense defense, HitPoints hitpoints) {
+    /*public Hero(Classy classy, String name, Experience exp, Level lev, Attack attack, Defense defense, HitPoints hitpoints) {
         this.classy = classy;
         this.name = name;
-        this.ex = ex;
+        this.ex = exp;
         this.l = lev;
         this.at = attack;
         this.de = defense;
         this.hp = hitpoints;
+    }*/
+
+    public Hero(String name) {
+        /*this.classy = classy;*/
+        this.name = name;
     }
 
     private Coords move(Coords currentCoords, String direction) {
@@ -66,11 +71,8 @@ public class Hero {
     protected Artefact pickUp() {
 
     }
-    public Experience getEx() {
-        return ex;
-    }
     public Level getLev() {
-        return l;
+        return this.l;
     }
     public Attack getAt() {
         return at;
@@ -83,5 +85,27 @@ public class Hero {
     }
     public Classy getClassy() {
         return classy;
+    }
+    public Experience getEx() {
+        return ex;
+    }
+    public void setLev(int setlev) {
+        this.l.setLevel(setlev);
+    }
+    public void setEx(int setexp) {
+        this.ex.setExp(setexp);
+    }
+    public void setAt(int setat) {
+        this.at.setAtt(setat);
+    }
+    public void setDe(int setde) {
+        this.de.setDe(setde);
+    }
+    public void setHi(int sethi) {
+        this.hp.setHi(sethi);
+    }
+
+    public void setClassy(Classy classy) {
+        this.classy = classy;
     }
 }

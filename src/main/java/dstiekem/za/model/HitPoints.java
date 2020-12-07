@@ -8,4 +8,7 @@ public class HitPoints {
     public void setHi(int set) {
         hi = set;
     }
+    public int getHi() {
+        return hi;
+    }
 }

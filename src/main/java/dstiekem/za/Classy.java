@@ -10,27 +10,27 @@ public class Classy {
     Classy(String className) {
         this.className = className;
     }
-    public Attack getClassAt() {
+    public Attack getNewClassAt() {
         if (className.equals("mimicryst"))
         {
-            at.setAt(75);
+            at.setAtt(75);
         }
         if (className.equals("venomed"))
         {
-            at.setAt(100);
+            at.setAtt(100);
         }
         if (className.equals("shelled"))
         {
-            at.setAt(25);
+            at.setAtt(25);
         }
         if (className.equals("winged"))
         {
-            at.setAt(25);
+            at.setAtt(25);
         }
         //winged, Shelled, venomed, or mimicryst
         return (at);
     }
-    public Defense getClassDe() {
+    public Defense getNewClassDe() {
         if (className.equals("mimicryst"))
         {
             de.setDe(75);
@@ -50,7 +50,7 @@ public class Classy {
         //winged, Shelled, venomed, or mimicryst
         return (de);
     }
-    public HitPoints getClassHi() {
+    public HitPoints getNewClassHi() {
         if (className.equals("mimicryst"))
         {
             hi.setHi(25);
@@ -67,7 +67,6 @@ public class Classy {
         {
             hi.setHi(100);
         }
-        //winged, Shelled, venomed, or mimicryst
         return (hi);
     }
 

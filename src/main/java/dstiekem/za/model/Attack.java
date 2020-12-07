@@ -5,7 +5,10 @@ public class Attack {
     public Attack(int at) {
         this.at = at;
     }
-    public void setAt(int set) {
+    public void setAtt(int set) {
         at = set;
+    }
+    public int getAt() {
+        return at;
     }
 }

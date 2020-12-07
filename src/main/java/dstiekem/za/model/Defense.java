@@ -8,4 +8,7 @@ public class Defense {
     public void setDe(int set) {
         de = set;
     }
+    public int getDe() {
+        return de;
+    }
 }

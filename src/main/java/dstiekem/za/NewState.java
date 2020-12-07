@@ -41,12 +41,15 @@ public class NewState extends GameState{
             classs = new Classy(classr.readLine());
             System.out.println("great! now give your hero a name");
             BufferedReader namer = new BufferedReader(new InputStreamReader(System.in));
-            name = namer.readLine();
+            hero = new Hero(namer.readLine());
+            hi = classs.getNewClassHi();
+            at = classs.getNewClassAt();
+            de = classs.getNewClassDe();
             level = new Level(1);
             experience = new Experience(1000);
 
 
-            hero = new Hero(classs, name, experience, level, at, de, hi);
+
             return hero;
         } catch (FileNotFoundException ex) {
 

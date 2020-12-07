@@ -7,7 +7,7 @@ import dstiekem.za.controller.Experience;
 //composed of experience
 public class Level {
     public Experience experience;
-    public int level;
+    private int level;
     public Level(int leevel) {
         this.level = leevel;
     }
@@ -22,5 +22,11 @@ public class Level {
             return new Level(level++);
         else
             return new Level(level);
+    }
+    public Level getLev(){
+        return
+    }
+    public void setLevel(int set) {
+        level = set;
     }
 }

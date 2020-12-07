@@ -34,6 +34,7 @@ public class ReadState extends GameState{
 
     }
     static private Hero readHero() {
+        Hero hero = null;
         try {
             FileReader fr = new FileReader(file);
             BufferedReader bbr = new BufferedReader(fr);
@@ -44,14 +45,14 @@ public class ReadState extends GameState{
                     break;
                 }
             }
-            experience = new Experience(Integer.parseInt(lines.get(2)));
-            level =  new Level(Integer.parseInt(lines.get(3)));
-            at = new Attack(Integer.parseInt(lines.get(4)));
-            de = new Defense(Integer.parseInt(lines.get(5)));
-            hi = new HitPoints(Integer.parseInt(lines.get(6)));
-
-            Hero hero = new Hero(lines.get(0),
-                    lines.get(1), experience, level, at, de, hi);
+            //problem: I want to set parameters of a constructor by using set methods from that object
+            hero = new Hero(lines.get(0));
+            Classy classy = new Classy(lines.get(1));
+            hero.setEx(Integer.parseInt(lines.get(2)));
+            hero.setLev(Integer.parseInt(lines.get(3)));
+            hero.setAt(Integer.parseInt(lines.get(4)));
+            hero.setDe(Integer.parseInt(lines.get(5)));
+            hero.setHi(Integer.parseInt(lines.get(6)));
 
 
         } catch (FileNotFoundException ex) {
@@ -66,7 +67,7 @@ public class ReadState extends GameState{
             else if(onlyYN.equals("no") || onlyYN.equals("No") || onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n"))
             {
                 System.out.println("ok bye bye");
-                java.lang.System.exit(0);
+                java.lang.Syste     m.exit(0);
             }
             onlyYN = br.readLine();*/
         } catch (IOException e) {

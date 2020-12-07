@@ -38,7 +38,7 @@ public class Main
             } else if (onlyYN.equals("no") || onlyYN.equals("No") || onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n")) {
                 gameState = new ReadState();
             }
-            map(gameState.gethero)
+            //map(gameState.gethero)
             /*BufferedWriter bbw = new BufferedWriter(new FileWriter(file));
             bbw.write("overwrten");
             bbw.close();*/
