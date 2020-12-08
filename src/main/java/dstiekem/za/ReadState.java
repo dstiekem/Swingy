@@ -28,12 +28,12 @@ public class ReadState extends GameState{
     @Size(min=1, max=3)
     public String name;
 
-    ReadState() throws IOException {
-        super(readHero());
+    ReadState(Hero hero) throws IOException {
+        super(hero);
         file = new File("savestate.txt");
 
     }
-    static private Hero readHero() {
+    public void readHero() {
         Hero hero = null;
         try {
             FileReader fr = new FileReader(file);
@@ -53,8 +53,6 @@ public class ReadState extends GameState{
             hero.setAt(Integer.parseInt(lines.get(4)));
             hero.setDe(Integer.parseInt(lines.get(5)));
             hero.setHi(Integer.parseInt(lines.get(6)));
-
-
         } catch (FileNotFoundException ex) {
 
             /*System.out.println("Saved Game not found. Create new game?");
@@ -73,6 +71,6 @@ public class ReadState extends GameState{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return hero;
+        /*return hero;*/
     }
 }

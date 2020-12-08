@@ -29,10 +29,10 @@ public class NewState extends GameState{
     @NotNull
     @Size(min=1, max=3)
     public static String name;
-    NewState() throws IOException {
-        super(createHero());
+    NewState(Hero hero) throws IOException {
+        super(hero);
     }
-    private Hero createHero() {
+    private void createHero() {
         try {
             BufferedReader classr = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("pick a class! type winged, Shelled, venomed, or mimicryst");
@@ -50,6 +50,6 @@ public class NewState extends GameState{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return hero;
+        /*return hero;*/
     }
 }
