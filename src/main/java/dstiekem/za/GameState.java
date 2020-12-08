@@ -14,12 +14,15 @@ import java.io.IOException;
 
 public abstract class GameState {
     public File file;
-    private Hero hero;
+    protected Hero hero;
     GameState(Hero hero) throws IOException {
         this.hero = hero;
     }
-    Hero getHero() {
-        return hero;
+    /*public Hero getHero() {
+        return this.hero;
     }
+    public void setHero(String Name) {
+        hero = new Hero(Name);
+    }*/
 
 }

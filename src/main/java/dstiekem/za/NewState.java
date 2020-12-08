@@ -32,17 +32,17 @@ public class NewState extends GameState{
     NewState() throws IOException {
         super(createHero());
     }
-    static private Hero createHero() {
+    private Hero createHero() {
         try {
             BufferedReader classr = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("pick a class! type winged, Shelled, venomed, or mimicryst");
             classs = new Classy(classr.readLine());
             System.out.println("great! now give your hero a name");
             BufferedReader namer = new BufferedReader(new InputStreamReader(System.in));
-            hero = new Hero(namer.readLine());
-            hero.setClassy(classs);
-            hero.setLev(1);
-            hero.setEx(1000);
+            this.hero = new Hero(namer.readLine());
+            this.hero.setClassy(classs);
+            this.hero.setLev(1);
+            this.hero.setEx(1000);
 
             /*return hero;*/
         } catch (FileNotFoundException ex) {
