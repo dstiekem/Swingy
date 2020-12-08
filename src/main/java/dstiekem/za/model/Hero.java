@@ -47,29 +47,30 @@ public class Hero {
 
     private Coords move(Coords currentCoords, String direction) {
         //figure out how to use validators here
+        this.coords = currentCoords;
         if (direction.equals("North") || direction.equals("NORTH") || direction.equals("north"))
         {
-            return (currentCoords(x, y+1));
+            return (new Coords(currentCoords.getX(), currentCoords.getY() + 1));
         }
         else if (direction.equals("East") || direction.equals("EAST") || direction.equals("east"))
         {
-            return (currentCoords(x+1, y));
+            return (new Coords(currentCoords.getX() + 1, currentCoords.getY()));
         }
         else if (direction.equals("South") || direction.equals("SOUTH") || direction.equals("south"))
         {
-            return (currentCoords(x, y-1));
+            return (new Coords (currentCoords.getX(), currentCoords.getY() - 1));
         }
         else if (direction.equals("West") || direction.equals("WEST") || direction.equals("west"))
         {
-            return (currentCoords(x-1, y));
+            return (new Coords (currentCoords.getX() - 1, currentCoords.getY()));
         }
-        return (currentCoords(x,y));
+        return (new Coords(currentCoords.getX(), currentCoords.getY()));
     }
     private void FightOrFlight(Enemy enemy, boolean choice, Coords coords) {
 
     }
     protected Artefact pickUp() {
-
+        return
     }
     public Level getLev() {
         return this.l;

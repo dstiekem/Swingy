@@ -1,5 +1,6 @@
 package dstiekem.za.model;
 
+import dstiekem.za.controller.Level;
 import dstiekem.za.model.*;
 //aggregates the level. either +1 -1 or the same level.
 //map is composed of enemy

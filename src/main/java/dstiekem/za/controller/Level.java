@@ -23,8 +23,8 @@ public class Level {
         else
             return new Level(level);
     }
-    public Level getLev(){
-        return
+    public int getLev(){
+        return this.level;
     }
     public void setLevel(int set) {
         level = set;

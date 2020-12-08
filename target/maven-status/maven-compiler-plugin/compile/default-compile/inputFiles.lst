@@ -6,10 +6,12 @@
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/PickupArtefact.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/NewState.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/controller/Level.java
+/home/stieky/Swingy/src/main/java/dstiekem/za/view/Map.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/controller/Experience.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/Main.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/Attack.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/Defense.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/HitPoints.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/GameState.java
+/home/stieky/Swingy/src/main/java/dstiekem/za/Classy.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/Battle.java

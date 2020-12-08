@@ -34,7 +34,6 @@ public class ReadState extends GameState{
 
     }
     public void readHero() {
-        Hero hero = null;
         try {
             FileReader fr = new FileReader(file);
             BufferedReader bbr = new BufferedReader(fr);
@@ -46,13 +45,13 @@ public class ReadState extends GameState{
                 }
             }
             //problem: I want to set parameters of a constructor by using set methods from that object
-            hero = new Hero(lines.get(0));
+            this.hero = new Hero(lines.get(0));
             Classy classy = new Classy(lines.get(1));
-            hero.setEx(Integer.parseInt(lines.get(2)));
-            hero.setLev(Integer.parseInt(lines.get(3)));
-            hero.setAt(Integer.parseInt(lines.get(4)));
-            hero.setDe(Integer.parseInt(lines.get(5)));
-            hero.setHi(Integer.parseInt(lines.get(6)));
+            this.hero.setEx(Integer.parseInt(lines.get(2)));
+            this.hero.setLev(Integer.parseInt(lines.get(3)));
+            this.hero.setAt(Integer.parseInt(lines.get(4)));
+            this.hero.setDe(Integer.parseInt(lines.get(5)));
+            this.hero.setHi(Integer.parseInt(lines.get(6)));
         } catch (FileNotFoundException ex) {
 
             /*System.out.println("Saved Game not found. Create new game?");

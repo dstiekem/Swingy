@@ -1,6 +1,6 @@
 package dstiekem.za.view;
 
-import java.swing.*;
+import dstiekem.za.*;
 //map size composed of level;
 //composed of enemies 1 map many enemies;
 

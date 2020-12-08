@@ -33,10 +33,11 @@ public class Main
             System.out.println("Create new game?: ");
             onlyYN = mr.readLine();
             GameState gameState;
+            Hero hero = null;
             if (onlyYN.equals("yes") || onlyYN.equals("Yes") || onlyYN.equals("YES") || onlyYN.equals("Y") || onlyYN.equals("y")) {
-                gameState = new NewState();
+                gameState = new NewState(hero);
             } else if (onlyYN.equals("no") || onlyYN.equals("No") || onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n")) {
-                gameState = new ReadState();
+                gameState = new ReadState(hero);
             }
             //map(gameState.gethero)
             /*BufferedWriter bbw = new BufferedWriter(new FileWriter(file));
