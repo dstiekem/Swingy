@@ -69,8 +69,9 @@ public class Hero {
     private void FightOrFlight(Enemy enemy, boolean choice, Coords coords) {
 
     }
-    protected Artefact pickUp() {
-        return
+    protected void pickUp(Artefact artefact) {
+        String art = artefact.getArt();
+        artefact.HpUp(l);
     }
     public Level getLev() {
         return this.l;

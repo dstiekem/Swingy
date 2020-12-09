@@ -2,8 +2,11 @@
 /home/stieky/Swingy/src/main/java/dstiekem/za/ReadState.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/Artefact.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/Hero.java
+/home/stieky/Swingy/src/main/java/dstiekem/za/model/Stats.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/Enemy.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/PickupArtefact.java
+/home/stieky/Swingy/src/main/java/dstiekem/za/model/RoyajellyArtefact.java
+/home/stieky/Swingy/src/main/java/dstiekem/za/model/FlowerArtefact.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/NewState.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/controller/Level.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/view/Map.java
@@ -11,6 +14,7 @@
 /home/stieky/Swingy/src/main/java/dstiekem/za/Main.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/Attack.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/Defense.java
+/home/stieky/Swingy/src/main/java/dstiekem/za/model/LeafArtefact.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/model/HitPoints.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/GameState.java
 /home/stieky/Swingy/src/main/java/dstiekem/za/Classy.java

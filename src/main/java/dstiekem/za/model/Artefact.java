@@ -1,5 +1,6 @@
 package dstiekem.za.model;
 
+import dstiekem.za.controller.Level;
 import dstiekem.za.model.HitPoints;
 
 //attributes:
@@ -34,7 +35,13 @@ public abstract class Artefact{
       public void setDe(int de) {
             this.d.setDe(de);
       }
-
+      public void HpUp(Level level) {
+            int hp = this.getHi();
+            int lev = level.getLev();
+            //switch case for every level go here.
+            //
+            this.setHi(hp);
+      }
      /* public void setArt(String art) {
             this.art = art;
       }*/

@@ -15,4 +15,8 @@ import dstiekem.za.model.*;
 public abstract class Enemy {
     Level l;
     Artefact a;
+    Enemy() {
+
+    }
+
 }
