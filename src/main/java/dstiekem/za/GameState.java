@@ -2,11 +2,9 @@ package dstiekem.za;
 
 import dstiekem.za.controller.Experience;
 import dstiekem.za.controller.Level;
-import dstiekem.za.model.Attack;
-import dstiekem.za.model.Defense;
-import dstiekem.za.model.Hero;
-import dstiekem.za.model.HitPoints;
+import dstiekem.za.model.*;
 import dstiekem.za.view.Map;
+import org.graalvm.compiler.phases.common.UseTrappingNullChecksPhase;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -28,8 +26,12 @@ public abstract class GameState {
     }*/
 
     public void start() {
-        map = new Map(this.hero.l.getLev());
+        public Coords coords;
+        map = new Map(this.hero.getLev());
         map.GenerateMap();
+        coords = this.hero.Move(map.PlaceHero());
+        //move the hero
+        //
     }
 
 

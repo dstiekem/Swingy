@@ -45,7 +45,7 @@ public class Hero {
         this.name = name;
     }
 
-    private Coords move(Coords currentCoords, String direction) {
+    public Coords Move(Coords currentCoords, String direction) {
         //figure out how to use validators here
         this.coords = currentCoords;
         if (direction.equals("North") || direction.equals("NORTH") || direction.equals("north"))

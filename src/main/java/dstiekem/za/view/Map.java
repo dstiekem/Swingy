@@ -21,7 +21,7 @@ public class Map {
     public int[][] map2d;
 
     public Map(Level lev){
-
+        this.level = lev;
     }
     public int[][] GenerateMap() {
         //2d arrat
@@ -30,7 +30,7 @@ public class Map {
     }
     public String CheckBounds(Coords coords) {
         //check coords of hero with size of map
-        if (coords.getX() == this.MapDim() || coords.getY() == this.MapDim())
+        if (coords.getX() >= this.MapDim() || coords.getY() >= this.MapDim() || coords.getX() < 0 || coords.getY() < 0)
         {
             //hero has won?
             System.out.println("YOU WON. go play something else now");
@@ -52,15 +52,15 @@ public class Map {
             //3 for fleed
         }
     }
-    public void PlaceHero() {
+    public Coords PlaceHero() {
         map2d[MapDim()/2][MapDim()/2] = 1;
+        return(new Coords(MapDim()/2, MapDim()/2));
     }
-    public int recordDefeat(Coords coords) {
+    public void recordDefeat(Coords coords) {
         if(map2d[coords.getX()][coords.getY()] == -1)
         {
             map2d[coords.getX()][coords.getY()] = 2;
         }
-        return
     }
     public void recordFlee(Coords coords) {
         if(map2d[coords.getX()][coords.getY()] == -1)
