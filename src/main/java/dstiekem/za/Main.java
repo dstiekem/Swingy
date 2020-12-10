@@ -18,14 +18,6 @@ import java.lang.*;
 public class Main
 {
     public static void main( String[] args ) throws IOException {
-        //launch gui : Framey
-            //
-        //see if you can read from the file
-            //if you can old game is set
-        //new game or old game
-            //old game: parse a json file if it exists.
-            //new game: generate random character.
-        //
         @ValidChoice
         String onlyYN;
         try {

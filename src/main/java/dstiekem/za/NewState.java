@@ -6,6 +6,7 @@ import dstiekem.za.model.*;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import dstiekem.za.validators.ValidClassy;
 import java.io.*;
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,8 +24,7 @@ public class NewState extends GameState{
     public static Attack at;
     public static Defense de;
     public static HitPoints hi;
-    @NotNull
-    @Size(min=1, max=3)
+    @ValidClassy
     public static Classy classs;
     @NotNull
     @Size(min=1, max=3)
