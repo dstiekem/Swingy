@@ -9,6 +9,7 @@ import java.awt.*;
 import dstiekem.za.*;
 import dstiekem.za.controller.*;
 import dstiekem.za.model.Hero;
+import dstiekem.za.validators.ValidChoice;
 
 import java.io.*;
 import java.util.*;
@@ -25,8 +26,7 @@ public class Main
             //old game: parse a json file if it exists.
             //new game: generate random character.
         //
-        @NotNull
-        @Size(min=1, max=3)
+        @ValidChoice
         String onlyYN;
         try {
             BufferedReader mr = new BufferedReader(new InputStreamReader(System.in));
@@ -39,6 +39,7 @@ public class Main
             } else if (onlyYN.equals("no") || onlyYN.equals("No") || onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n")) {
                 gameState = new ReadState(hero);
             }
+
             //map(gameState.gethero)
             /*BufferedWriter bbw = new BufferedWriter(new FileWriter(file));
             bbw.write("overwrten");
