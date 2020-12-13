@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: dstiekem.za.Main
+Main-Class: dstiekem.za.controller.Main
 Class-Path: /home/stieky/Swingy/src/main/java/dstiekem.za
 
