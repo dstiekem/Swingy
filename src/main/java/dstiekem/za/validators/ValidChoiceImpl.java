@@ -11,7 +11,7 @@ public class ValidChoiceImpl implements ConstraintValidator<ValidChoice, String>
      public boolean isValid(String onlyYN, ConstraintValidatorContext context) {
          if (onlyYN.isEmpty()) {
              context.disableDefaultConstraintViolation();
-             context.buildConstraintViolationWithTemplate("oops! theres yes or no: ")
+             context.buildConstraintViolationWithTemplate("oops! theres no yes or no: ")
                  .addPropertyNode("empty")
                  .addConstraintViolation();
              return false;

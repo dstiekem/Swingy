@@ -1,6 +1,10 @@
 package dstiekem.za.controller;
 
 import dstiekem.za.validators.ValidChoice;
+import dstiekem.za.model.*;
+import dstiekem.za.view.InputClassname;
+import dstiekem.za.view.InputNewgame;
+import org.graalvm.compiler.lir.StandardOp;
 
 import java.io.*;
 import java.lang.*;
@@ -8,19 +12,33 @@ import java.lang.*;
 public class Main
 {
     @ValidChoice
-    String onlyYN;
+    private static String onlyYN;
+    private static Hero hero;
     public static void main( String[] args ) throws IOException {
-
+        System.out.println("Create new game?: ");
         BufferedReader mr = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Create newgame?: ");
-            /*onlyYN = mr.readLine();
-            GameState gameState;
-            Hero hero = null;
-            if (onlyYN.equals("yes") || onlyYN.equals("Yes") || onlyYN.equals("YES") || onlyYN.equals("Y") || onlyYN.equals("y")) {
-                gameState = new NewState(hero);
-            } else if (onlyYN.equals("no") || onlyYN.equals("No") || onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n")) {
-                gameState = new ReadState(hero);
-            }*/
+        onlyYN = mr.readLine();
+        boolean fileex = true;
+        try {
+            File file = new File("savestate.txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader bbr = new BufferedReader(fr);
+
+        } catch (FileNotFoundException ex) {
+            fileex = false;
+        }
+        InputNewgame inpit = new InputNewgame(onlyYN, fileex);
+        if(inpit.GetGame()) {
+            System.out.println("cx");
+        }
+        else {
+            InputClassname ICN = new InputClassname();
+            Classy classy = new Classy(ICN.getClassy());
+            hero = new Hero(ICN.getHeroname(), classy);
+            hero.setInitalLevEx(1, 1000);
+            System.out.println("yeee! Your hero is a " + ICN.getClassy() + " by the name of " + ICN.getHeroname());
+        }
+
 
         //map(gameState.gethero)
             /*BufferedWriter bbw = new BufferedWriter(new FileWriter(file));
