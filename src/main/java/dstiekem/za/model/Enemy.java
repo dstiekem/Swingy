@@ -15,27 +15,27 @@ import java.util.Random;
 // a level
 // an artefact
 public abstract class Enemy {
-    Level l;
+    Level heL;
     Level enL;
     Artefact a;
-    Enemy(Level l) {
-        this.l = l;
+    Enemy(Level heL) {
+        this.heL = heL;
         int plusMinus = new Random().nextInt(2);
         if(plusMinus == 1)
-            enL.setLevel(this.l.getLev() - 1);
+            enL.setLevel(this.heL.getLev() - 1);
         else
-            enL.setLevel(this.l.getLev() + 1);
+            enL.setLevel(this.heL.getLev() + 1);
     }
 
     public Artefact DropsArtefact() {
         Random r = new Random();
         int chance = r.nextInt(3);
         if (chance == 1)
-            a = new FlowerArtefact(l);
+            a = new FlowerArtefact(heL);
         if (chance == 2)
-            a = new RoyajellyArtefact(l);
+            a = new RoyajellyArtefact(heL);
         if(chance == 3)
-            a = new LeafArtefact(l);
+            a = new LeafArtefact(heL);
         return a;
     }
 }

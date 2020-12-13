@@ -26,7 +26,7 @@ import java.util.Random;
 //hit points - how many attack before die
 public class Hero {
     private Experience ex;
-    public Level l;
+    private Level l;
     private Attack at;
     private Defense de;
     private HitPoints hp;

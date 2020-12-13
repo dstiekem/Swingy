@@ -17,9 +17,10 @@ import java.lang.*;
 
 public class Main
 {
+    @ValidChoice
+    private static String onlyYN;
     public static void main( String[] args ) throws IOException {
-        @ValidChoice
-        String onlyYN;
+
         try {
             BufferedReader mr = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Create new game?: ");
