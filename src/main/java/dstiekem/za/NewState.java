@@ -31,6 +31,7 @@ public class NewState extends GameState{
     public static String name;
     NewState(Hero hero) throws IOException {
         super(hero);
+        createHero();
     }
     private void createHero() {
         try {

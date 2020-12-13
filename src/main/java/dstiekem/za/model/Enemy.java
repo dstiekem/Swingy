@@ -2,6 +2,8 @@ package dstiekem.za.model;
 
 import dstiekem.za.controller.Level;
 import dstiekem.za.model.*;
+
+import java.util.Random;
 //aggregates the level. either +1 -1 or the same level.
 //map is composed of enemy
 //behaviour:
@@ -14,9 +16,26 @@ import dstiekem.za.model.*;
 // an artefact
 public abstract class Enemy {
     Level l;
+    Level enL;
     Artefact a;
-    Enemy() {
-
+    Enemy(Level l) {
+        this.l = l;
+        int plusMinus = new Random().nextInt(2);
+        if(plusMinus == 1)
+            enL.setLevel(this.l.getLev() - 1);
+        else
+            enL.setLevel(this.l.getLev() + 1);
     }
 
+    public Artefact DropsArtefact() {
+        Random r = new Random();
+        int chance = r.nextInt(3);
+        if (chance == 1)
+            a = new FlowerArtefact(l);
+        if (chance == 2)
+            a = new RoyajellyArtefact(l);
+        if(chance == 3)
+            a = new LeafArtefact(l);
+        return a;
+    }
 }

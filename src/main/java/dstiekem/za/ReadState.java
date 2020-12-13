@@ -32,6 +32,7 @@ public class ReadState extends GameState{
 
     ReadState(Hero hero) throws IOException {
         super(hero);
+        readHero();
         file = new File("savestate.txt");
 
     }

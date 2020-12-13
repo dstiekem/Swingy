@@ -14,8 +14,8 @@ public abstract class Artefact{
       protected Attack a;
       protected Defense d;
       protected String art;
-      Artefact(String artefact){
-            this.art = artefact;
+
+      Artefact(Level level){
       }
       public int getHi() {
             return this.hp.getHi();

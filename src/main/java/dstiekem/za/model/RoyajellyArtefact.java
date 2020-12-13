@@ -1,7 +1,12 @@
 package dstiekem.za.model;
 import dstiekem.za.*;
+import dstiekem.za.controller.Level;
 
 public class RoyajellyArtefact extends Artefact{
+    public RoyajellyArtefact(Level level) {
+        super(level);
+        this.getArt();
+    }
 
     //level 1  pansy the pansiest of plants offers you no improvement to your venomous capabilities. adds 455 X 5 (takes 5 to get to new level)2450
     //level 2 gardenia spicy leaf with a kick to your attack 235 x 10 to get to 4800

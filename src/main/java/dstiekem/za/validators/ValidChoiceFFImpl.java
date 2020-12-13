@@ -1,30 +1,31 @@
 package dstiekem.za.validators;
 
-import dstiekem.za.validators.ValidDirection;
+import dstiekem.za.validators.ValidChoice;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class ValidDirectionImpl implements ConstraintValidator<ValidDirection, String> {
+public class ValidChoiceFFImpl implements ConstraintValidator<ValidChoiceFF, String> {
 
     @Override
-    public boolean isValid(String direction, ConstraintValidatorContext context) {
-        if (direction.isEmpty()) {
+    public boolean isValid(String onlyYN, ConstraintValidatorContext context) {
+        if (onlyYN.isEmpty()) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("oops! theres direction input: ")
+            context.buildConstraintViolationWithTemplate("oops! theres no : ")
                     .addPropertyNode("empty")
                     .addConstraintViolation();
             return false;
         }
         else {
-            if (direction.equals("north") || direction.equals("south") || direction.equals("east") ||
-                    direction.equals("west") || direction.equals("exit")){
+            if (onlyYN.equals("yes") || onlyYN.equals("Yes") || onlyYN.equals("YES") ||
+                    onlyYN.equals("Y") || onlyYN.equals("y") || onlyYN.equals("no") || onlyYN.equals("No") ||
+                    onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n")){
                 return true;
             }
             else {
                 context.disableDefaultConstraintViolation();
                 context.buildConstraintViolationWithTemplate(
-                        "please type in north, south, east, or west not: " + direction + ". ps it's case sensitive")
+                        "please type in yes or no, not: " + onlyYN)
                         .addPropertyNode("empty")
                         .addConstraintViolation();
                 return false;
@@ -32,4 +33,3 @@ public class ValidDirectionImpl implements ConstraintValidator<ValidDirection, S
         }
     }
 }
-

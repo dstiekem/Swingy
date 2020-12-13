@@ -29,4 +29,16 @@ public class Level {
     public void setLevel(int set) {
         level = set;
     }
+    public int getlevEx() {
+        int l = this.getLev();
+        int levex = 0;
+        switch (l) {
+            case 1: levex =  1000;
+            case 2: levex = 2540;
+            case 3: levex = 4800;
+            case 4: levex = 8050;
+            case 5: levex = 12200;
+        }
+        return levex;
+    }
 }

@@ -7,6 +7,12 @@ import javax.validation.constraints.Size;
 import dstiekem.za.Classy;
 import dstiekem.za.model.*;
 import dstiekem.za.controller.*;
+import dstiekem.za.validators.ValidChoiceFF;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Random;
 
 //hero behaviours:
 //move
@@ -29,6 +35,7 @@ public class Hero {
     //@Size(min=5, max=10)
     private String name;
     private Coords coords;
+
 
     /*public Hero(Classy classy, String name, Experience exp, Level lev, Attack attack, Defense defense, HitPoints hitpoints) {
         this.classy = classy;
@@ -66,8 +73,27 @@ public class Hero {
         }
         return (new Coords(currentCoords.getX(), currentCoords.getY()));
     }
-    private void FightOrFlight(Enemy enemy, boolean choice, Coords coords) {
+    public int FightOrFlight(Enemy enemy, String choice, Coords coords) {
+        //
+        //takes in initialised enemy;
 
+        if(choice.equals("fight"))
+        {
+            //get enemy stats
+
+            //run a chance and a exp comparison
+
+            return 1;
+        }
+        else {
+            Random r = new Random();
+            int chance = r.nextInt(2);
+            if (chance == 1) {
+                return 0;
+            } else if (chance == 2) {
+                return 1;
+            }
+        }
     }
     protected void pickUp(Artefact artefact) {
         String art = artefact.getArt();

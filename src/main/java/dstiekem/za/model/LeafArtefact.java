@@ -9,7 +9,7 @@ public class LeafArtefact extends Artefact{
     //level 3 budlia leaves 325 x 10 to get to 8050
     //level 4 cellulose fruit (seeds) 415 x10 to get to 12200
     //level 5 glucose fruit.1725 X 10 to get to 17250 and win the game.
-    LeafArtefact(String artefact) {
+    LeafArtefact(Level artefact) {
         super(artefact);
         this.getArt();
     }
@@ -19,5 +19,6 @@ public class LeafArtefact extends Artefact{
         //switch case for every level go here.
         //
         this.setHi(hp);
+
     }
 }
