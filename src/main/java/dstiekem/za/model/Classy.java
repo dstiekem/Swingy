@@ -74,4 +74,7 @@ public class Classy {
         }
         /*return (hi);*/
     }
+    public String getClassName() {
+        return className;
+    }
 }

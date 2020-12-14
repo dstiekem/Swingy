@@ -14,7 +14,7 @@ public class InputClassname {
     public InputClassname() {
         try {
             BufferedReader classr = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("pick a class! type winged, Shelled, venomed, or mimicryst");
+            System.out.println("pick a class! type winged, shelled, venomed, or mimicryst");
             classy = classr.readLine();
             System.out.println("great! now give your hero a name " + classy);
             BufferedReader namer = new BufferedReader(new InputStreamReader(System.in));
