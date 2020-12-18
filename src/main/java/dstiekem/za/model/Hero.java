@@ -12,7 +12,7 @@ public class Hero {
     private Classy classy;
     //private Coords coords;
     private String name;
-    private Coords coords;
+    public Coords coords;
 
     public Hero(String name, Classy classy) {
         /*this.classy = classy;*/
@@ -20,8 +20,7 @@ public class Hero {
         l = new Level(1);
         ex = new Experience(1000);
         this.classy = classy;
-
-
+        //this.coords = new Coords(2, 2);
     }
     /*public void setInitalLevEx() {
 
@@ -62,29 +61,39 @@ public class Hero {
     public void setHi(int sethi) {
         this.hp.setHi(sethi);
     }*/
-    public Coords Move(Coords currentCoords, String direction) {
+    public Coords Move(Coords coords, String direction) {
         //figure out how to use validators here
-        //this.coords = currentCoords;
-        this.coords = currentCoords;
-        System.out.println("HEOOOO");
+        //this.coords = new Coords(currentCoords.getX(), currentCoords.getY());
+        //this.coords = new Coords(currentCoords.getX(), currentCoords.getY());
+        //System.out.println("HEOOOO");
+        this.coords = coords;
+        Coords newcoord = this.coords;
         if (direction.equals("North") || direction.equals("NORTH") || direction.equals("north"))
         {
-            System.out.println("HEOOOO");
-            return (new Coords(this.coords.getX(), this.coords.getY() + 1));
+            System.out.println("MOVED NORT");
+            newcoord.setX(coords.getX() - 1);
+            newcoord.setY(coords.getY());
+           // return (new Coords(this.coords.getX(), this.coords.getY() + 1));
         }
         else if (direction.equals("East") || direction.equals("EAST") || direction.equals("east"))
         {
-            return (new Coords(this.coords.getX() + 1, this.coords.getY()));
+            System.out.println("MOVED EAT");
+            newcoord.setX(coords.getX());
+            newcoord.setY(coords.getY() + 1);
         }
         else if (direction.equals("South") || direction.equals("SOUTH") || direction.equals("south"))
         {
-            return (new Coords (this.coords.getX(), this.coords.getY() - 1));
+            System.out.println("MOVED SOUT");
+            newcoord.setX(coords.getX() + 1);
+            newcoord.setY(coords.getY());
         }
         else if (direction.equals("West") || direction.equals("WEST") || direction.equals("west"))
         {
-            return (new Coords (this.coords.getX() - 1, this.coords.getY()));
+            System.out.println("MOVED WET");
+            newcoord.setX(coords.getX());
+            newcoord.setY(coords.getY() - 1);
         }
-        return (new Coords(88770, 96));
+        return (newcoord);
     }
     public int FightOrFlight(Enemy enemy, String choice, Coords coords) {
         if(choice.equals("fight"))
@@ -103,8 +112,9 @@ public class Hero {
         return 0;
     }
     public Coords getCoords() {
-        return coords;
+        return this.coords;
     }
-
-
+    public void setCoords(Coords newcoords) {
+        this.coords = newcoords;
+    }
 }

@@ -16,8 +16,8 @@ public class Main
     private static Hero hero;
     private static Map map;
     private static BufferedReader bbr;
-    private static Coords coords;
-
+    public static Coords coords;
+    private static String dir;
     public static void main( String[] args ) throws IOException {
         System.out.println("Create new game?: ");
         BufferedReader mr = new BufferedReader(new InputStreamReader(System.in));
@@ -60,30 +60,37 @@ public class Main
         }
         //start game
         map = new Map(hero.l);
-        coords = map.PlaceHero();
+        //make hero put in the middle of the map and make placehero takes those coords
+        coords = new Coords(map.fndCentre().getX(), map.fndCentre().getY());
+        coords = hero.Move(coords, "ee");
+        Coords newcord;
+        map.PlaceHero(coords, coords);
+        //map.PrintHero();
         InputMove moving = new InputMove(coords);
-        String dir;
-        //coords = new Coords(1,1);
         dir = moving.getDirInput();
         while(1 == 1){
-            coords = hero.Move(this.coords, dir);
-            dir = new String();
-            //System.out.println(dir);
-            dir = moving.getDirPrompt();
-            System.out.println(dir);
-            if (coords.getX() >= map.MapDim() || coords.getY() >= map.MapDim() || coords.getX() < 0 || coords.getY() < 0)
+
+            //newcord = coords;
+            System.out.println(coords.getX() + " " + coords.getY());
+            newcord = hero.Move(coords, dir);
+            System.out.println(newcord.getX() + " " + newcord.getY());
+            if (newcord.getX() >= map.MapDim() || newcord.getY() >= map.MapDim() || newcord.getX() < 0 || newcord.getY() < 0)
             {
                 new OutputYouwon();
             }
-            if(map.EnemytoFind(coords, hero))
+            map.PlaceHero(newcord, coords);
+            map.PrintMap(1);
+            dir = moving.getDirPrompt();
+           // System.out.println(dir);
+
+            if(map.EnemytoFind(newcord, hero))
             {
                 Enemy enemy = (Enemy) map.getEnemy();
                 InputFightorFlight ff = new InputFightorFlight(enemy);
-                hero.FightOrFlight(enemy, ff.getFightOrFlight(), coords);
+                hero.FightOrFlight(enemy, ff.getFightOrFlight(), newcord);
             }
             /*System.out.println(coords.getX());
             System.out.println(coords.getY());*/
-
         }
         //call input move in a loop
         //pass the directions to hero.move
@@ -91,5 +98,7 @@ public class Main
             //call fights with the map.
                 //change value at that point to reflect nothing if hero won.
         //or nothing move on
+
+        //map.MoveMap(hero);
     }
 }
