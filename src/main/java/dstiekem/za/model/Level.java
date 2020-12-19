@@ -26,6 +26,9 @@ public class Level {
     public void setLevel(int set) {
         level = set;
     }
+    public int getEx(){
+        return(this.experience.getEx());
+    }
     /*public int getlevEx() {
         int l = this.getLev();
         int levex = 0;

@@ -2,7 +2,7 @@ package dstiekem.za.model;
 //composed of level
 //composed of
 public class Experience {
-    public Level level;
+    //public Level level;
     public int Experience;
     public Experience(int points) {
         this.Experience = points;

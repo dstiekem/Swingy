@@ -12,7 +12,7 @@ public abstract class Enemy {
     String name;
     String threat;
     Hero hero;
-    //Artefact a;
+    Artefact a;
     Enemy(Level heL) {
         this.heL = heL;
         enL = new Level(1);
@@ -55,7 +55,7 @@ public abstract class Enemy {
         if (chance == 1)
             a = new FlowerArtefact(heL);
         if (chance == 2)
-            a = new RoyajellyArtefact(heL);
+            a = new RoyaJellyArtefact(heL);
         if(chance == 3)
             a = new LeafArtefact(heL);
         return a;

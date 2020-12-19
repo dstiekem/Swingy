@@ -90,11 +90,12 @@ public class Main
                 if(i == 1)
                 {
                     ff.NowFight();
-
                     if(enemy.compareStats() == 1)
                     {
                         //pick up artefact
-                        enemy.
+                        Artefact a = enemy.DropsArtefact();
+                        InputPickup pickme = new InputPickup(a);
+                        //for artefact...if
                     }
                     else if(enemy.compareStats() == 2)
                     {
