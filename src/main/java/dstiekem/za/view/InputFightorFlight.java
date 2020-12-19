@@ -21,4 +21,10 @@ public class InputFightorFlight {
         fightOrFlight = forfr.readLine();
         return fightOrFlight;
     }
+    public void NowFight(){
+        System.out.println("by chance or choice you have chosen to fight, may you not die an insignificant death");
+    }
+    public void ThankTheGods() {
+        System.out.println("thank the insect gods you escaped. but be weary of this place in future...");
+    }
 }

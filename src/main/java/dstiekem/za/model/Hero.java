@@ -1,5 +1,7 @@
 package dstiekem.za.model;
 
+import dstiekem.za.controller.ChoiceChanceArray;
+
 import java.util.Random;
 
 public class Hero {
@@ -7,8 +9,8 @@ public class Hero {
     public Level l = null;
     /*private int at;
     private int de;
-    private int hp;
-    private Stat stats;*/
+    private int hp;*/
+    private Stat stats;
     private Classy classy;
     //private Coords coords;
     private String name;
@@ -62,50 +64,42 @@ public class Hero {
         this.hp.setHi(sethi);
     }*/
     public Coords Move(Coords coords, String direction) {
-        //figure out how to use validators here
-        //this.coords = new Coords(currentCoords.getX(), currentCoords.getY());
-        //this.coords = new Coords(currentCoords.getX(), currentCoords.getY());
-        //System.out.println("HEOOOO");
-        this.coords = coords;
-        Coords newcoord = this.coords;
+        Coords newcoord = new Coords(coords.getX(), coords.getY());
+        //this.coords = newcoord;
         if (direction.equals("North") || direction.equals("NORTH") || direction.equals("north"))
         {
-            System.out.println("MOVED NORT");
             newcoord.setX(coords.getX() - 1);
             newcoord.setY(coords.getY());
            // return (new Coords(this.coords.getX(), this.coords.getY() + 1));
         }
         else if (direction.equals("East") || direction.equals("EAST") || direction.equals("east"))
         {
-            System.out.println("MOVED EAT");
             newcoord.setX(coords.getX());
             newcoord.setY(coords.getY() + 1);
         }
         else if (direction.equals("South") || direction.equals("SOUTH") || direction.equals("south"))
         {
-            System.out.println("MOVED SOUT");
             newcoord.setX(coords.getX() + 1);
             newcoord.setY(coords.getY());
         }
         else if (direction.equals("West") || direction.equals("WEST") || direction.equals("west"))
         {
-            System.out.println("MOVED WET");
             newcoord.setX(coords.getX());
             newcoord.setY(coords.getY() - 1);
         }
         return (newcoord);
     }
-    public int FightOrFlight(Enemy enemy, String choice, Coords coords) {
+    public int FightOrFlight(Enemy enemy, String choice, ChoiceChanceArray choicechance) {
         if(choice.equals("fight"))
         {
             return 1;
         }
-        else {
-            Random r = new Random();
-            int chance = r.nextInt(2);
-            if (chance == 1) {
+        else if (choice.equals("flee") || choice.equals("flight")) {
+
+            System.out.println("e" + choicechance.getnextvalue(1));
+            if (choicechance.getnextvalue(1) == 1) {
                 return 0;
-            } else if (chance == 2) {
+            } else if (choicechance.getnextvalue(1) == 2) {
                 return 1;
             }
         }

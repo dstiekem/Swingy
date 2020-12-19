@@ -98,20 +98,21 @@ public class Map {
     /*public void PrintHero(Coords coords) {
         System.out.println("");
     }*/
-    public boolean EnemytoFind(Coords coords, Hero hero) {
-
+    public int EnemytoFind(Coords coords, Hero hero) {
+        System.out.println();
         if(map2d[coords.getX()][coords.getY()] == -1) {
             //i.nextInt(6)
             //this.enemy = (Enemy) enemyArray.get(2);
             //System.out.print(this.enemy.getName() + " ");
 
             //System.out.print((Enemy) enemyArray.get(rand.nextInt(enemyArray.size() - 1)).getName());
-            return true;
+            return 1;
         }
         else if(map2d[coords.getX()][coords.getY()] == 0) {
-            return false;
+            return 0;
         }
-        return false;
+        System.out.println("eh?");
+        return 2;
     }
     public Enemy getEnemy() {
         return(enemy);
@@ -148,9 +149,12 @@ public class Map {
         //System.out.println((lev - 1)*5 + 10 - (lev % 2));
         return((lev - 1)*5 + 10 - (lev % 2));
     }
-    public void PlaceHero(Coords coords, Coords prev) {
+    public void PlaceHero(Coords coords, Coords prev, int passedenemy) {
         //return(new Coords(MapDim()/2, MapDim()/2));
-        map2d[prev.getX()][prev.getY()] = 0;
+        if (passedenemy == 1)
+            map2d[prev.getX()][prev.getY()] = -1;
+        else
+            map2d[prev.getX()][prev.getY()] = 0;
         map2d[coords.getX()][coords.getY()] = 1;
     }
 /*    public void MoveMap(Hero hero) {

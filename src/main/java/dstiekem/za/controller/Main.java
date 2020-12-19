@@ -18,6 +18,7 @@ public class Main
     private static BufferedReader bbr;
     public static Coords coords;
     private static String dir;
+    private static ChoiceChanceArray choice;
     public static void main( String[] args ) throws IOException {
         System.out.println("Create new game?: ");
         BufferedReader mr = new BufferedReader(new InputStreamReader(System.in));
@@ -59,38 +60,66 @@ public class Main
             System.out.println("yeee! Your hero is a " + ICN.getClassy() + " by the name of " + ICN.getHeroname());
         }
         //start game
+        OutputYouend end = new OutputYouend();
         map = new Map(hero.l);
+        choice = new ChoiceChanceArray(map.MapDim(), 2, 0);
         //make hero put in the middle of the map and make placehero takes those coords
         coords = new Coords(map.fndCentre().getX(), map.fndCentre().getY());
         coords = hero.Move(coords, "ee");
         Coords newcord;
-        map.PlaceHero(coords, coords);
+        map.PlaceHero(coords, coords, 0);
         //map.PrintHero();
         InputMove moving = new InputMove(coords);
         dir = moving.getDirInput();
         while(1 == 1){
-
-            //newcord = coords;
-            System.out.println(coords.getX() + " " + coords.getY());
+            int passedenemy = 0;
             newcord = hero.Move(coords, dir);
-            System.out.println(newcord.getX() + " " + newcord.getY());
             if (newcord.getX() >= map.MapDim() || newcord.getY() >= map.MapDim() || newcord.getX() < 0 || newcord.getY() < 0)
             {
-                new OutputYouwon();
+                end.OutputYouwon();
             }
-            map.PlaceHero(newcord, coords);
-            map.PrintMap(1);
-            dir = moving.getDirPrompt();
-           // System.out.println(dir);
-
-            if(map.EnemytoFind(newcord, hero))
+            if(map.EnemytoFind(newcord, hero) == 1)
             {
                 Enemy enemy = (Enemy) map.getEnemy();
                 InputFightorFlight ff = new InputFightorFlight(enemy);
-                hero.FightOrFlight(enemy, ff.getFightOrFlight(), newcord);
+                int i = hero.FightOrFlight(enemy, ff.getFightOrFlight(), choice);
+                for(int h = 0; h < map.MapDim(); h++) {
+                    System.out.println(choice.getnextvalue(h));
+                    //System.out.println(h);
+                }
+                if(i == 1)
+                {
+                    ff.NowFight();
+
+                    if(enemy.compareStats() == 1)
+                    {
+                        //pick up artefact
+                        enemy.
+                    }
+                    else if(enemy.compareStats() == 2)
+                    {
+                        //YOU LOST
+                        end.OutputYoulost();
+                    }
+                    //enemy.compare stats
+                        //if hero has higher stats he has a 4/5 chance winning
+                        //if hero has lower stats he has a 3/5 chance winning
+                    //if won
+                        //hero.pickupart
+                        //art adds pointsNeededForNextLevel
+
+                }
+                else if(i == 0)
+                {
+                    ff.ThankTheGods();
+                    passedenemy = 1;
+                    newcord = coords;
+                }
             }
-            /*System.out.println(coords.getX());
-            System.out.println(coords.getY());*/
+            map.PlaceHero(newcord, coords, passedenemy);
+            map.PrintMap(1);
+            dir = moving.getDirPrompt();
+            coords = newcord;
         }
         //call input move in a loop
         //pass the directions to hero.move

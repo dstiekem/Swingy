@@ -19,7 +19,8 @@ public class InputMove {
             BufferedReader dirReader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("\nMove your hero around the map using north, south, east and west.\n " +
                     "You'll encounter some enemies. which you can try to flee or fight.\n" +
-                    "reaching the end of the map means you won\n");
+                    "reaching the end of the map means you won\n" +
+                    "push enter to continue");
             dirInput = dirReader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
