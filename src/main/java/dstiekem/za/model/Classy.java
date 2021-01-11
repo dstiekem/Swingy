@@ -7,6 +7,7 @@ public class Classy {
     private int at;
     private int de;
     private int hi;
+    private Stat stat;
     public Classy(String className) {
 
         this.className = className;
@@ -18,19 +19,19 @@ public class Classy {
     private void setNewClassAt(String className) {
         if (className.equals("mimicryst"))
         {
-            at = 75;
+            at = 300;
         }
         if (className.equals("venomed"))
         {
-            at = 100;
+            at = 500;
         }
         if (className.equals("shelled"))
         {
-            at = 25;
+            at = 100;
         }
         if (className.equals("winged"))
         {
-            at = 25;
+            at = 100;
         }
         //winged, Shelled, venomed, or mimicryst
         /*  return (at);*/
@@ -38,19 +39,19 @@ public class Classy {
     private void setNewClassDe(String className) {
         if (className.equals("mimicryst"))
         {
-            de = 75;
+            de = 300;
         }
         if (className.equals("venomed"))
         {
-            de = 25;
+            de =100;
         }
         if (className.equals("shelled"))
         {
-            de = 100;
+            de = 500;
         }
         if (className.equals("winged"))
         {
-            de = 50;
+            de = 100;
         }
         //winged, Shelled, venomed, or mimicryst
         /*        return (de);*/
@@ -58,23 +59,27 @@ public class Classy {
     private void setNewClassHi(String className) {
         if (className.equals("mimicryst"))
         {
-            hi = 25;
+            hi = 100;
         }
         if (className.equals("venomed"))
         {
-            hi = 50;
+            hi = 200;
         }
         if (className.equals("shelled"))
         {
-            hi = 50;
+            hi = 200;
         }
         if (className.equals("winged"))
         {
-            hi = 100;
+            hi = 500;
         }
         /*return (hi);*/
     }
     public String getClassName() {
         return className;
+    }
+    public Stat getStat(){
+        stat = new Stat(hi, de, at);
+        return stat;
     }
 }

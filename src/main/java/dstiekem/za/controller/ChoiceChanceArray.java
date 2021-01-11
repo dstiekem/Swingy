@@ -7,30 +7,46 @@ public class ChoiceChanceArray {
     private int[] chancechoice;
     int size;
     int rangeochoice;
-    public ChoiceChanceArray(int size, int rangeochoice, int div) {
+    public ChoiceChanceArray(int size, int rangeochoice, int div)  {
         this.size = size;
         this.rangeochoice = rangeochoice;
         chancechoice = new int[size];
         int split = 1;
-        if (div == 0 || rangeochoice > 2)
+        if (div == 0)
             split = size / rangeochoice;
         else if(div > 0 && rangeochoice == 2)
             split = div;
         Random rand = new Random();
-        for(int n = 0; n < size; n++)
+        int n = 0;
+        while(n < size)
         {
             //System.out.println("first" + chancechoice[n]);
             if(chancechoice[n] == 0)
             {
                 for (int i = 1; i <= rangeochoice; i++) {
                     //System.out.println("it are" + i);
-                    for (int x = 0; x < split; x++) {
+                    int x = 0;
+                    while(x <= split) {
                         int ee = rand.nextInt(size);
-                        if (chancechoice[ee] == 0)
+                        if (chancechoice[ee] == 0) {
+
+                           // System.out.println("first" + chancechoice[ee]);
                             chancechoice[ee] = i;
+                            //try{Thread.sleep(500);}catch(InterruptedException e){System.out.println(e);}
+                           // System.out.println(chancechoice[ee]);
+                        }
+                        x++;
                     }
                 }
             }
+            n++;
+        }
+        for(int x = 0; x < size; x++)
+        {
+            //System.out.println("before" + chancechoice[x]);
+            if (chancechoice[x] == 0)
+                chancechoice[x] = 1;
+            //System.out.println("after" + chancechoice[x]);
         }
     }
     public int getnextvalue(int i){

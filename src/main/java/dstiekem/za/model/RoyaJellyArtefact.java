@@ -3,6 +3,7 @@ package dstiekem.za.model;
 public class RoyaJellyArtefact extends Artefact{
     public RoyaJellyArtefact(Level hLev) {
         super(hLev);
+        super.artName = "Royal Jelly";
         int aspLev = hLev.getLev() + 1;
         switch(aspLev){
             case 2: super.setStat(172, 101, 182);

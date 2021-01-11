@@ -8,6 +8,7 @@ public class LeafArtefact extends Artefact{
         //level 5 glucose fruit.1725 X 10 to get to 17250 and win the game.
     LeafArtefact(Level hLev) {
         super(hLev);
+        super.artName = "Leaf";
         int aspLev = hLev.getLev() + 1;
         switch(aspLev){
             case 2: super.setStat(172, 182, 101);

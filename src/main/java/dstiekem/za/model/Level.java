@@ -11,14 +11,16 @@ public class Level {
     public Level(int leevel) {
         this.level = leevel;
     }
-    public Level LevelUp(Experience experience) {
+    public boolean LevelUp(Experience experience) {
         this.experience = experience;
         int tmp1 = level * 1000;
         int tmp2 = (level-1)^2 * 450;
-        if (experience.getEx() >= tmp1 + tmp2)
-            return new Level(level++);
-        else
-            return new Level(level);
+        if (experience.getEx() >= tmp1 + tmp2) {
+            level++;
+            System.out.println("you LEVELED UP!!!\n" + "you are now on level" + level);
+            return true;
+        }
+        return false;
     }
     public int getLev(){
         return this.level;

@@ -5,13 +5,13 @@ import dstiekem.za.controller.ChoiceChanceArray;
 import java.util.Random;
 
 public class Hero {
-    private Experience ex = null;
+    public Experience ex = null;
     public Level l = null;
     /*private int at;
     private int de;
     private int hp;*/
     private Stat stats;
-    private Classy classy;
+    public Classy classy;
     //private Coords coords;
     private String name;
     public Coords coords;
@@ -24,21 +24,9 @@ public class Hero {
         this.classy = classy;
         //this.coords = new Coords(2, 2);
     }
-    /*public void setInitalLevEx() {
-
-    }*/
     public int getLev() {
         return this.l.getLev();
     }
-/*    public Attack getAt() {
-        return at;
-    }
-    public Defense getDe() {
-        return de;
-    }
-    public HitPoints getHi() {
-        return hp;
-    }*/
     public String getClassy() {
         return classy.getClassName();
     }
@@ -54,23 +42,12 @@ public class Hero {
     public String getName() {
         return name;
     }
-/*    public void setAt(int setat) {
-        this.at.setAtt(setat);
-    }
-    public void setDe(int setde) {
-        this.de.setDe(setde);
-    }
-    public void setHi(int sethi) {
-        this.hp.setHi(sethi);
-    }*/
     public Coords Move(Coords coords, String direction) {
         Coords newcoord = new Coords(coords.getX(), coords.getY());
-        //this.coords = newcoord;
         if (direction.equals("North") || direction.equals("NORTH") || direction.equals("north"))
         {
             newcoord.setX(coords.getX() - 1);
             newcoord.setY(coords.getY());
-           // return (new Coords(this.coords.getX(), this.coords.getY() + 1));
         }
         else if (direction.equals("East") || direction.equals("EAST") || direction.equals("east"))
         {
@@ -89,18 +66,18 @@ public class Hero {
         }
         return (newcoord);
     }
-    public int FightOrFlight(Enemy enemy, String choice, ChoiceChanceArray choicechance) {
+    public int FightOrFlight(Enemy enemy, String choice, ChoiceChanceArray choicechance, int index) throws InterruptedException {
         if(choice.equals("fight"))
         {
-            return 1;
+            return 2;
         }
-        else if (choice.equals("flee") || choice.equals("flight")) {
+        else if (choice.equals("flee")) {
 
-            System.out.println("e" + choicechance.getnextvalue(1));
-            if (choicechance.getnextvalue(1) == 1) {
-                return 0;
-            } else if (choicechance.getnextvalue(1) == 2) {
+            //System.out.println("e" + choicechance.getnextvalue(1));
+            if (choicechance.getnextvalue(index) == 1) {
                 return 1;
+            } else if (choicechance.getnextvalue(index) == 2) {
+                return 2;
             }
         }
         return 0;

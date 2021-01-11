@@ -10,8 +10,10 @@ public class FlowerArtefact extends Artefact {
         //1725 /15 = 115. if each artefact gives 345 it could take 5 artefacts tp get to 1725 and 10 x 5 artefacts to win the game
     FlowerArtefact(Level hLev) {
         super(hLev);
+        super.artName = "Flower";
         int aspLev = hLev.getLev() + 1;
         switch(aspLev){
+            case 1: super.setStat(1,1,1);
             case 2: super.setStat(182, 172, 101);
             case 3: super.setStat(141, 47, 47);
             case 4: super.setStat(130, 65, 65);

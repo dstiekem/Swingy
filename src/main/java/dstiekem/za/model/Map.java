@@ -6,8 +6,9 @@ import java.util.Random;
 public class Map {
     private Level herolev;
     private int[][] map2d;
-    private ArrayList<Enemy> enemyArray;
+    public static ArrayList<Enemy> enemyArray;
     private Enemy enemy;
+    private int test;
 
     public Map(Level heroLev){
         this.herolev = heroLev;
@@ -15,13 +16,8 @@ public class Map {
         this.map2d = new int[dim][dim];
         for(int i = 0; i < (dim * dim)/4; i++) {
             Random rand = new Random();
-            map2d[rand.nextInt(dim)][rand.nextInt(dim)] = -1;
-            //gonna use Alistairs of placing int values on the map for characters
-            //-1 for     enemies
-            // 1 for loss
-            //2 for defeated
-            //0 for empty
-            //3 for fleed
+            map2d[rand.nextInt(dim - 1)][rand.nextInt(dim - 1)] = -1;
+            //Enemy enemy = MakeEnemyArray().get(rand.nextInt(7));
         }
         for (int i = 0; i < (dim); i++) {
             for (int ii = 0; ii < (dim); ii++) {
@@ -31,7 +27,9 @@ public class Map {
                     map2d[i][ii] = 0;
             }
         }
-        //fill array with all enemy types
+        //MakeEnemyArray();
+    }
+    public ArrayList<Enemy> MakeEnemyArray(){
         ArrayList enemyArray = new ArrayList<Enemy>();
         Enemy boot = new EnemyBoot(herolev);
         Enemy fork = new EnemyFork(herolev);
@@ -53,12 +51,28 @@ public class Map {
                 case 7: enemyArray.add(spade);
             }
         }
-      /* for (int i = 0; i < enemyArray.size(); i++) {
+        test = 12;
+/*        for (int i = 0; i < enemyArray.size(); i++) {
             Enemy en = (Enemy) enemyArray.get(i);
             System.out.print(en.getName() + " ");
         }*/
-        Random rand = new Random();
-        enemy = (Enemy) enemyArray.get(rand.nextInt(enemyArray.size() - 1));
+        /*Random rand = new Random();
+        enemy = (Enemy) enemyArray.get(rand.nextInt(enemyArray.size() - 1));*/
+        return enemyArray;
+    }
+    public Enemy getEnemy(int index) {
+        //System.out.println(test);
+        /*Random rand = new Random();
+        enemy = (Enemy) enemyArray.get(index);*/
+        /*for (int i = 0; i < enemyArray.size(); i++) {
+            Enemy en = (Enemy) enemyArray.get(i);
+            System.out.print(en.getName() + " ");
+            System.out.println(enemy.getName() + "   ");
+        }*/
+        ;
+        Random r = new Random();
+        Enemy ene = MakeEnemyArray().get(r.nextInt(6));
+        return ene;
     }
     public void PrintMap(int n) {
         if (n == 1) {
@@ -99,7 +113,7 @@ public class Map {
         System.out.println("");
     }*/
     public int EnemytoFind(Coords coords, Hero hero) {
-        System.out.println();
+        //System.out.println();
         if(map2d[coords.getX()][coords.getY()] == -1) {
             //i.nextInt(6)
             //this.enemy = (Enemy) enemyArray.get(2);
@@ -111,12 +125,10 @@ public class Map {
         else if(map2d[coords.getX()][coords.getY()] == 0) {
             return 0;
         }
-        System.out.println("eh?");
+        //System.out.println("eh?");
         return 2;
     }
-    public Enemy getEnemy() {
-        return(enemy);
-    }
+
 /*    public void EnemyFound() {
         try {
             if(hero.FightOrFlight(enemy, fightOrFlight, coords) == 1)
@@ -151,8 +163,10 @@ public class Map {
     }
     public void PlaceHero(Coords coords, Coords prev, int passedenemy) {
         //return(new Coords(MapDim()/2, MapDim()/2));
-        if (passedenemy == 1)
+        if (passedenemy == 1) {
             map2d[prev.getX()][prev.getY()] = -1;
+            //passedenemy.setCoords(prev.getX(), prev.getY());
+        }
         else
             map2d[prev.getX()][prev.getY()] = 0;
         map2d[coords.getX()][coords.getY()] = 1;

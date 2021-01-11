@@ -19,7 +19,7 @@ public class ValidChoiceImpl implements ConstraintValidator<ValidChoice, String>
          else {
              if (onlyYN.equals("yes") || onlyYN.equals("Yes") || onlyYN.equals("YES") ||
                      onlyYN.equals("Y") || onlyYN.equals("y") || onlyYN.equals("no") || onlyYN.equals("No") ||
-                     onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n")){
+                     onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n") || onlyYN.equals("exit")){
                  return true;
              }
              else {
