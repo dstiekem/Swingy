@@ -1,7 +1,10 @@
 package dstiekem.za.model;
 
 import dstiekem.za.controller.ChoiceChanceArray;
+import dstiekem.za.controller.SaveState;
+import dstiekem.za.view.InputFightorFlight;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class Hero {
@@ -67,6 +70,7 @@ public class Hero {
         return (newcoord);
     }
     public int FightOrFlight(Enemy enemy, String choice, ChoiceChanceArray choicechance, int index) throws InterruptedException {
+
         if(choice.equals("fight"))
         {
             return 2;

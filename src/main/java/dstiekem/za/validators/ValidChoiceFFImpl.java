@@ -4,6 +4,7 @@ import dstiekem.za.validators.ValidChoice;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import java.util.Locale;
 
 public class ValidChoiceFFImpl implements ConstraintValidator<ValidChoiceFF, String> {
 
@@ -17,9 +18,10 @@ public class ValidChoiceFFImpl implements ConstraintValidator<ValidChoiceFF, Str
             return false;
         }
         else {
-            if (onlyYN.equals("yes") || onlyYN.equals("Yes") || onlyYN.equals("YES") ||
-                    onlyYN.equals("Y") || onlyYN.equals("y") || onlyYN.equals("no") || onlyYN.equals("No") ||
-                    onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n") || onlyYN.equals("exit")){
+            onlyYN = onlyYN.toLowerCase();
+            if (onlyYN.equals("yes") ||
+                    onlyYN.equals("y") || onlyYN.equals("no")||
+                    onlyYN.equals("n") || onlyYN.equals("exit")){
                 return true;
             }
             else {

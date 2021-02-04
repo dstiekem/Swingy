@@ -44,6 +44,7 @@ public class Main
                     }
                 }
                 Classy readclassy = new Classy(lines.get(1));
+                System.out.println("you are " + lines.get(0) + "\n" + "class: " + lines.get(1) + "\n" + "experience: " + lines.get(2) + "\n" + "level: " + lines.get(3));
                 hero = new Hero(lines.get(0), readclassy);
                 hero.setEx(Integer.parseInt(lines.get(2)));
                 hero.setLev(Integer.parseInt(lines.get(3)));

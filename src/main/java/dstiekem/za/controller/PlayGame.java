@@ -2,12 +2,12 @@ package dstiekem.za.controller;
 
 import dstiekem.za.validators.ValidChoice;
 import dstiekem.za.model.*;
+import dstiekem.za.validators.ValidDirection;
 import dstiekem.za.view.*;
 import org.graalvm.compiler.lir.StandardOp;
 
 import java.io.*;
 import java.lang.*;
-import java.util.ArrayList;
 public class PlayGame {
     @ValidChoice
     private static String onlyYN;
@@ -15,6 +15,7 @@ public class PlayGame {
     private static Map map;
     private static BufferedReader bbr;
     public static Coords coords;
+    @ValidDirection
     private static String dir;
     private static ChoiceChanceArray choice;
     PlayGame(Hero hero) throws IOException, InterruptedException {
@@ -33,14 +34,18 @@ public class PlayGame {
         InputMove moving = new InputMove(coords);
         dir = moving.getDirInput();
         if(dir.equals("exit")) {
-            new SaveState(hero);
+            new SaveState(hero).exiting();
         }
+        /*if(dir.equals("save")) {
+            new SaveState(hero).stating();
+        }*/
         int h = 0;
         while(1 == 1){
             int passedenemy = 0;
             newcord = hero.Move(coords, dir);
             if (newcord.getX() >= map.MapDim() || newcord.getY() >= map.MapDim() || newcord.getX() < 0 || newcord.getY() < 0)
             {
+                //new SaveState(hero);
                 end.OutputYouwon();
             }
             if(map.EnemytoFind(newcord, hero) == 1)
@@ -55,10 +60,13 @@ public class PlayGame {
                 do{
                     fifl = ff.getFightOrFlight();
                 } while (!(fifl.equals("fight")) && !(fifl.equals("flee")) && !(fifl.equals("exit")));
+                //
+                //fifl = ff.getFightOrFlight();
                 if(fifl.equals("exit"))
                 {
-                    new SaveState(hero);
+                    new SaveState(hero).exiting();
                 }
+
                 int i = hero.FightOrFlight(enemy, fifl, choice, h);
                 // System.out.println("this is the index" + h);
                 if(i == 2)
@@ -113,7 +121,7 @@ public class PlayGame {
             map.PrintMap(1);
             dir = moving.getDirPrompt();
             if(dir.equals("exit")) {
-                new SaveState(hero);
+                new SaveState(hero).exiting();
             }
             coords = newcord;
         }

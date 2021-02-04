@@ -31,12 +31,13 @@ public class InputNewgame {
             }
         } else if (onlyYN.equals("no") || onlyYN.equals("No") || onlyYN.equals("NO") || onlyYN.equals("N") || onlyYN.equals("n") && fileex == true) {
             //gameState = new ReadState(hero);
-            System.out.println("Loading a new game...");
+            System.out.println("Loading game...");
+            System.out.println();
             gamestate = true;
         }
         else
         {
-            System.out.println("here?");
+            System.out.println("ok...creating a new game!!");
         }
     }
     public boolean GetGame() {

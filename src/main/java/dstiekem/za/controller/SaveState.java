@@ -12,7 +12,7 @@ public class SaveState {
     private Hero hero;
     public File file;
     public BufferedWriter bbw;
-    SaveState(Hero hero){
+    public SaveState(Hero hero){
         this.hero = hero;
         //pass in the hero variable with level, exp, name, class
         try {
@@ -27,11 +27,20 @@ public class SaveState {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        new outputGamesaved();
-        System.exit(0);
+
         //write to file savestate.txt
         //your game has been saved
         // exiting game...
         //
+    }
+    public void stating() {
+        new outputGamesaved();
+        System.out.println("you are " + hero.getName() + "\n" + "class: " + hero.getClassy() + "\n" + "experience: "
+                + hero.getEx() + "\n" + "level: " + hero.getLev());
+    }
+    public void exiting() {
+        new outputGamesaved();
+        System.out.println("exiting...\n");
+        System.exit(0);
     }
 }

@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 
 public class InputFightorFlight {
     @ValidChoiceFF
-    private String fightOrFlight;
+    String fightOrFlight;
     private Enemy en;
     public InputFightorFlight(Enemy en) {
         this.en = en;
@@ -19,6 +19,7 @@ public class InputFightorFlight {
         System.out.println("AN ENEMY! " + en.getThreat() + "choose to fight or flee from this " + en.getName());
         BufferedReader forfr = new BufferedReader(new InputStreamReader(System.in));
         fightOrFlight = forfr.readLine();
+        //fightOrFlight = "ew";
         return fightOrFlight;
     }
     public void NowFight(){

@@ -11,7 +11,7 @@ public class ValidDirectionImpl implements ConstraintValidator<ValidDirection, S
     public boolean isValid(String direction, ConstraintValidatorContext context) {
         if (direction.isEmpty()) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("oops! theres direction input: ")
+            context.buildConstraintViolationWithTemplate("oops! theres no direction input: ")
                     .addPropertyNode("empty")
                     .addConstraintViolation();
             return false;

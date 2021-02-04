@@ -14,11 +14,16 @@ public class InputClassname {
     public InputClassname() {
         try {
             BufferedReader classr = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("pick a class! type winged, shelled, venomed, or mimicryst");
-            classy = classr.readLine();
-            System.out.println("great! now give your hero a name");
             BufferedReader namer = new BufferedReader(new InputStreamReader(System.in));
-            heroname = namer.readLine();
+            do {
+                System.out.println("pick a class! type winged, shelled, venomed, or mimicryst");
+                classy = classr.readLine();
+            } while (!(classy.equals("winged")) && !(classy.equals("shelled")) && !(classy.equals("venomed")) && !(classy.equals("mimicryst")));
+            do {
+                System.out.println("great! now give your hero a name");
+                heroname = namer.readLine();
+            } while (!(heroname.matches("[\\S]+")));
+            //((heroname.equals(null)) || heroname.equals("")) &&
         } catch (IOException e) {
             e.printStackTrace();
         }
