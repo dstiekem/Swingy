@@ -1,5 +1,6 @@
 # Swingy
-please clone from "Frans" branch untill I fix my merge problem. This is where the majority of the work happened.
+after cloning please switch to the `Frans` branch until I fix my merge problem. This is where the majority of the work happened.
+`git checkout Frans`
 
 ## A CLI game made in Java.
 after swicthing to the correct branch run `mvn package clean` to compile with maven (I dont know much about maven) and then `java -jar Swingy.jar` to run.
